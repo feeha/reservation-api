@@ -17,4 +17,13 @@ export class GuestsService {
     async find(id: string): Promise<Guests> {
         return await this.guestsModel.findById(id);
     }
+    async findByEmail(email: string): Promise<Guests> {
+        return await this.guestsModel.findOne(email);
+    }
+    async update(id: string, guestsDto: GuestsDto): Promise<Guests> {
+        return await this.guestsModel.findByIdAndUpdate(id, guestsDto);
+    }
+    async delete(id: string): Promise<Guests> {
+        return await this.guestsModel.findByIdAndRemove(id);
+    }
 }

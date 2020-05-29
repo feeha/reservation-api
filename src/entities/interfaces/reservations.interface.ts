@@ -8,7 +8,7 @@ export interface Reservation extends Document {
     readonly pickUpLocation: string;
     readonly stops:
     [
-        { readonly stopnam: string }
+        { readonly stopname: string }
     ];
     readonly dropOffLocation: string;
     readonly noOfPassengers: number;

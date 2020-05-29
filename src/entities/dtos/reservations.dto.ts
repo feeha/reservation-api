@@ -1,20 +1,23 @@
+import { IsEmail, IsNumber, IsString, Min, Max, IsBoolean, Length } from 'class-validator';
+
+class ChildernDto {
+   @IsString() readonly child: String;
+   @IsNumber() @Min(1) @Max(10) readonly count: Number;
+}
+
 export class ReservationDto {
-    
-    readonly serviceType: string;
-    readonly pickUpDate: Date;
-    readonly pickUpTime: string;
-    readonly pickUpLocation: string;
-    readonly stops:
+
+   @IsString() @Length(5,200) readonly serviceType: string;
+   @IsString() readonly pickUpDate: Date;
+    @IsString() readonly pickUpTime: string;
+    @IsString() readonly pickUpLocation: string;
+     readonly stops:
     [
-        { readonly stopnam: string }
+        { readonly stopname: string }
     ];
-    readonly dropOffLocation: string;
-    readonly noOfPassengers: number;
-    readonly luggageCount: number;
-    readonly childern:
-    [
-        { child: String },
-        { noOfChild: Number }
-    ];
-    readonly handicapAccess: boolean;
+    @IsString() readonly dropOffLocation: string;
+    @IsNumber() @Min(1) @Max(10) readonly noOfPassengers: number;
+    @IsNumber() @Min(1) @Max(10) readonly luggageCount: number;
+    readonly childern: [ ChildernDto];
+    @IsBoolean() readonly handicapAccess: boolean;
 }

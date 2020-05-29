@@ -1,4 +1,4 @@
-import { Controller, Post, Get, Body, Param } from '@nestjs/common';
+import { Controller, Post, Get, Body, Param, Patch, Delete } from '@nestjs/common';
 import { GuestsService } from './../services/guests.service';
 import { GuestsDto } from './../dtos/guests.dto';
 import { Guests } from './../interfaces/guests.interface';
@@ -18,5 +18,13 @@ export class GuestsController {
     @Get('/:id')
     async find(@Param('id') id: string) {
         return this.guestsService.find(id);
+    }
+    @Patch('/update/:id')
+    async update(@Param('id') id: string, @Body() guestsDto: GuestsDto) {
+        return this.guestsService.update(id, guestsDto);
+    }
+    @Delete('/delete/:id')
+    async delete(@Param('id') id: string) {
+        return this.guestsService.delete(id);
     }
 }

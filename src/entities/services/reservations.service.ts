@@ -17,4 +17,10 @@ export class ReservationService {
     async find(id: string): Promise<Reservation> {
         return await this.reservationModel.findById(id);
     }
+    async update(id: string, reservationDto: ReservationDto): Promise<Reservation> {
+        return await this.reservationModel.findByIdAndUpdate(id, reservationDto);
+    }
+    async delete(id: string): Promise<Reservation> {
+        return await this.reservationModel.findByIdAndRemove(id);
+    }
 }
