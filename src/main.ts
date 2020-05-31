@@ -1,4 +1,5 @@
 import * as helmet from 'helmet';
+import * as dotenv from 'dotenv';
 import { NestFactory } from '@nestjs/core';
 import {
   FastifyAdapter,
@@ -7,6 +8,8 @@ import {
 
 import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
+
+dotenv.config();
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -19,7 +22,8 @@ async function bootstrap() {
   app.enableCors();
   app.setGlobalPrefix('/api/v1');
 
-  await app.listen(3000);
-  console.log('Application is running on http://localhost:3000/api/v1/');
+  const port = 80;
+  await app.listen(port);
+  console.log('Application is running on http://localhost:80/api/v1/');
 }
 bootstrap();
