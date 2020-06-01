@@ -1,4 +1,5 @@
 import * as mongoose from 'mongoose';
+import { CarsSchema } from './cars.schema';
 
 const ChildernSchema = new mongoose.Schema({
     child: { type: String, required: false },
@@ -15,5 +16,6 @@ export const ReservationSchema = new mongoose.Schema({
     noOfPassengers: { type: Number, required: true },
     luggageCount: { type: Number, required: true },
     childern: [ ChildernSchema ],
-    handicapAccess: { type: Boolean, required: true }
+    handicapAccess: { type: Boolean, required: true },
+    car: [ CarsSchema ]
 });

@@ -1,7 +1,9 @@
 import { Document } from 'mongoose';
+import { Cars } from './cars.interface';
 
 export interface Reservation extends Document {
     
+    readonly car: Cars;
     readonly serviceType: string;
     readonly pickUpDate: Date;
     readonly pickUpTime: string;
