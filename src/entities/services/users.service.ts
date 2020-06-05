@@ -1,6 +1,6 @@
 import { Inject, Injectable, HttpStatus } from '@nestjs/common';
 import { Model } from 'mongoose';
-import { UsersDto, ResetPasswordDto } from './../dtos/users.dto';
+import { UsersDto } from './../dtos/users.dto';
 import { Users } from './../interfaces/users.interface';
 
 @Injectable()
