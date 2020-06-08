@@ -9,7 +9,8 @@
     "start": "nest start --watch",
     "build": "npm run clean && nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",,
-    "start:prod": "node dist/main",
+    "start:prod": "node dist/src/main.js",
+    "prestart:prod": "rimraf dist && tsc",
     "clean": "rimraf dist"
   },
   "dependencies": {
